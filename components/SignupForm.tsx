@@ -32,21 +32,27 @@ export default function SignupForm() {
   return (
     <div className={styles.form} id={id}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.inputSection}>
+        <div className={styles.formSection}>
           <label className={styles.label}>email</label>
-          <input type="email" className={styles.input} {...register("email")} />
+          <input
+            type="email"
+            className={styles.input}
+            placeholder="Enter your email"
+            {...register("email")}
+          />
           {errors.email && <p role="alert">{errors.email?.message}</p>}
         </div>
-        <div className={styles.inputSection}>
+        <div className={styles.formSection}>
           <label className={styles.label}>password</label>
           <input
             type="password"
             className={styles.input}
+            placeholder="Enter your password"
             {...register("password")}
           />
           {errors.password && <p role="alert">{errors.password?.message}</p>}
         </div>
-        <div className={styles.inputSection}>
+        <div className={styles.formSection}>
           <input
             type="checkbox"
             className={styles.termOfUseCheckbox}
@@ -57,7 +63,7 @@ export default function SignupForm() {
             <p role="alert">{errors.acceptTermsOfUse?.message}</p>
           )}
         </div>
-        <div className={styles.inputSection}>
+        <div className={styles.formSection}>
           <input
             type="submit"
             className={styles.signupButton}
