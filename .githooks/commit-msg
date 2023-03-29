@@ -1,4 +1,4 @@
-bug_regex_commit_format='^(feat|fix|chore|refactor|docs|style|test|perf|ci|build|revert)(\[\w+\])*:\s(\w|\s|-)+$'
+bug_regex_commit_format='^(feat|fix|chore|refactor|docs|style|test|perf|ci|build|revert)(\[\w+\])*:\s(\w|\s|-|.)+$'
 if ! grep -iqE "$bug_regex_commit_format" "$1"; then
 	echo 'Bad Format. Commit should follow this guidelines: https://floriankdrone.github.io/footfantasy/project_guidelines/#commit-conventions'
 	exit 1
