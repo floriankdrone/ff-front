@@ -95,21 +95,70 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  background: rgb(var(--background-rgb-test));
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+#authentication_page {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 1200px;
+  height: 600px;
+  background-color: rgb(var(--style-background-rgb));
+  color: rgb(var(--style-font-rgb));
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+#authentication_form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+#authentication_form h1 {
+  color: rgb(var(--font-rgb));
+}
+
+#authentication_picto {
+  width: 700px;
+}
+
+#authentication_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 5;
+}
+
+#authentication_section > div {
+  height: fit-content;
+}
+
+#authentication_slider {
+  align-self: flex-end;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+p[role="alert"] {
+  padding: 5px;
+  background-color: rgba(255, 1, 1, 0.358);
+  border: 1px solid rgb(var(--style-font-rgb));
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+  margin-top: 5px;
 }

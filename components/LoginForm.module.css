@@ -2,7 +2,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   color: rgb(var(--font-rgb));
-  background-color: inherit;
+  background-color: rgb(var(--style-background-rgb));
   font: var(--style-font);
   display: flex;
   flex-direction: column;
@@ -12,18 +12,7 @@
 
 .formSection {
   padding: 10px;
-  width: 300px;
-}
-
-.signupButtonSection {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.signupButtonSection > input {
-  display: block;
+  min-width: 300px;
 }
 
 .input {
@@ -44,24 +33,23 @@
   font-size: 17px;
 }
 
-.signupButton {
-  display: block;
-  width: 120px;
-  height: 35px;
-  padding: 3px;
-  background-color: rgb(var(--style-background1-rgb));
-  border: none;
-  border-radius: 20px;
-  color: rgb(var(--font-rgb));
+.termOfUseCheckbox {
+  margin-right: 5px;
+}
+
+.termOfUseLabel {
   font-size: 13px;
   font: var(--style-font);
 }
 
-.signupButtonSection > a {
-  text-decoration: none;
+.signupButton {
+  display: block;
+  width: 100px;
+  padding: 3px;
+  background-color: rgb(var(--style-background1-rgb));
+  border: none;
+  border-radius: 12px;
   color: rgb(var(--font-rgb));
-}
-
-.signupButtonSection a:hover {
-  text-decoration: underline;
+  font-size: 13px;
+  font: var(--style-font);
 }

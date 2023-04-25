@@ -1,27 +1,21 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
 import * as yup from "yup";
 import validator from "../common/validation";
 import api from "../common/api";
 import styles from "./SignupForm.module.css";
-import Link from "next/link";
-import Checkbox from "./Checkbox";
 
 const schema = yup
   .object({
     email: validator.email.required(),
     password: validator.password.required(),
-    acceptTermsOfUse: validator.checked.required(),
   })
   .required();
 type FormData = yup.InferType<typeof schema>;
 
-interface SignupFormProps {
-  switchToLoginFn: any;
-}
-
-export default function SignupForm({ switchToLoginFn }: SignupFormProps) {
-  const id = "signup-form";
+export default function SignupForm() {
+  const id = "login-form";
   const {
     register,
     handleSubmit,
@@ -31,7 +25,7 @@ export default function SignupForm({ switchToLoginFn }: SignupFormProps) {
   });
   const onSubmit = (data: FormData) => {
     console.log(data);
-    api.post("account/create", data);
+    api.post("authentication/create", data);
   };
 
   return (
@@ -58,32 +52,7 @@ export default function SignupForm({ switchToLoginFn }: SignupFormProps) {
           {errors.password && <p role="alert">{errors.password?.message}</p>}
         </div>
         <div className={styles.formSection}>
-          <Checkbox
-            inputProps={register("acceptTermsOfUse")}
-            label="I accept the Terms Of Use"
-          />
-          {errors.acceptTermsOfUse && (
-            <p role="alert">{errors.acceptTermsOfUse?.message}</p>
-          )}
-        </div>
-        <div
-          className={[styles.formSection, styles.signupButtonSection].join(" ")}
-        >
-          <input
-            type="submit"
-            className={styles.signupButton}
-            value="Sign Up"
-          />
-          <Link
-            href={{
-              pathname: "/authentication",
-              query: { action: "login" },
-            }}
-            onClick={switchToLoginFn}
-            className={styles["signup-form"]}
-          >
-            I'm already a member
-          </Link>
+          <input type="submit" className={styles.signupButton} value="Login" />
         </div>
       </form>
     </div>

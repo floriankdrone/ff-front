@@ -18,6 +18,7 @@ describe("SignupForm", () => {
     expect(passwordLabel).toBeInTheDocument();
     expect(passwordInput).toBeInTheDocument();
     expect(signupButton).toBeInTheDocument();
+    expect(signupButton).toHaveAttribute("href", "/authentication?state=login");
   });
 
   it.skip("renders error in the signup form when missing email", () => {});
