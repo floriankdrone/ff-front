@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "http://api.local:3001";
 
 async function post(path: String, body: Object) {
   const res = await fetch(`${BASE_URL}/${path}`, {

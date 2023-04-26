@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useMemo } from "react";
 import Image from "next/image";
 
 import SignupForm from "@/components/SignupForm";
@@ -8,14 +9,20 @@ import Slider, { SliderOption } from "@/components/Slider";
 
 export default function Authentication() {
   const router = useRouter();
-  const SignupSliderOption: SliderOption = {
-    label: "Sign Up",
-    id: "signup",
-  };
-  const LoginSliderOption: SliderOption = {
-    label: "Login",
-    id: "login",
-  };
+  const SignupSliderOption: SliderOption = useMemo(
+    () => ({
+      label: "Sign Up",
+      id: "signup",
+    }),
+    []
+  );
+  const LoginSliderOption: SliderOption = useMemo(
+    () => ({
+      label: "Login",
+      id: "login",
+    }),
+    []
+  );
 
   const [value, setValue] = useState(SignupSliderOption);
 
@@ -25,7 +32,7 @@ export default function Authentication() {
         ? LoginSliderOption
         : SignupSliderOption;
     setValue(action);
-  }, [router.query.action]);
+  }, [router.query.action, LoginSliderOption, SignupSliderOption]);
 
   return (
     <>

@@ -82,7 +82,7 @@ export default function SignupForm({ switchToLoginFn }: SignupFormProps) {
             onClick={switchToLoginFn}
             className={styles["signup-form"]}
           >
-            I'm already a member
+            {"I'm already a member"}
           </Link>
         </div>
       </form>
